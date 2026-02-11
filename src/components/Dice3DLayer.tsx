@@ -14,24 +14,25 @@ const Dice3DLayer: React.FC = () => {
     const lastProcessedRequestId = useRef<string | null>(null);
     const cleanupTimerRef = useRef<NodeJS.Timeout | null>(null);
 
+    const containerRef = useRef<HTMLDivElement>(null);
+
     // Initialize DiceBox
     useEffect(() => {
-        if (boxRef.current) return;
+        if (!containerRef.current || boxRef.current) return;
 
-        console.log("🎲 Initializing DiceBox (Standard Scale)...");
+        console.log("🎲 Initializing DiceBox...");
 
         const box = new DiceBox({
-            container: "#dice-box-new",
+            container: containerRef.current, // Use ref instead of selector
             assetPath: '/dice-roller-app/assets/dice-box/',
             scale: 4,
             theme: 'default',
-            offscreen: window.location.hostname === 'localhost', // Only use WebWorker in localhost
+            offscreen: true, // Let's enable worker for production
             gravity: 3,
             mass: 3,
             friction: 0.8,
             restitution: 0.5,
             lightIntensity: 1.5,
-            cameraPosition: [0, 0, 100]
         });
 
         box.init().then(() => {
@@ -41,6 +42,8 @@ const Dice3DLayer: React.FC = () => {
         }).catch(e => {
             console.error("🎲 DiceBox Init Error:", e);
         });
+
+    }, []);
 
 
     // Handle Theme Changes
@@ -203,7 +206,7 @@ const Dice3DLayer: React.FC = () => {
             </style>
             <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
                 {/* Canvas Container */}
-                <div id="dice-box-new" className="absolute inset-0 w-full h-full block"></div>
+                <div ref={containerRef} className="absolute inset-0 w-full h-full block"></div>
 
                 {/* Result Badge */}
                 {resultBadge && (
