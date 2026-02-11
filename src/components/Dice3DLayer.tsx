@@ -22,7 +22,7 @@ const Dice3DLayer: React.FC = () => {
 
         const box = new DiceBox({
             container: "#dice-box-new",
-            assetPath: '/assets/dice-box/',
+            assetPath: '/dice-roller-app/assets/dice-box/',
             scale: 4,
             theme: 'default',
             offscreen: window.location.hostname === 'localhost', // Only use WebWorker in localhost
