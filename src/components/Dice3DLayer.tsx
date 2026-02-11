@@ -56,8 +56,6 @@ const Dice3DLayer: React.FC = () => {
         }
     }, [floorColor, isReady]);
 
-    }, []);
-
     // Handle Pending Request
     useEffect(() => {
         if (!isReady || !boxRef.current || !pendingRollRequest) return;
