@@ -22,18 +22,20 @@ const Dice3DLayer: React.FC = () => {
 
         console.log("🎲 Initializing DiceBox...");
 
-        const box = new DiceBox({
-            container: containerRef.current, // Use ref instead of selector
-            assetPath: '/dice-roller-app/assets/dice-box/',
-            scale: 4,
-            theme: 'default',
-            offscreen: false, // Disable worker to ensure stability in production
-            gravity: 3,
-            mass: 3,
-            friction: 0.8,
-            restitution: 0.5,
-            lightIntensity: 1.5,
-        });
+        const box = new DiceBox(
+            containerRef.current, // Use ref as the FIRST argument
+            {                     // Config object as the SECOND argument
+                assetPath: '/dice-roller-app/assets/dice-box/',
+                scale: 4,
+                theme: 'default',
+                offscreen: false, // Disable worker to ensure stability in production
+                gravity: 3,
+                mass: 3,
+                friction: 0.8,
+                restitution: 0.5,
+                lightIntensity: 1.5,
+            }
+        );
 
         box.init().then(() => {
             console.log("🎲 DiceBox Ready!");
