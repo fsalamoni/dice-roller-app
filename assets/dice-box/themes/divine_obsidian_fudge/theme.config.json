@@ -1,0 +1,26 @@
+{
+	"name": "Divine obsidian Fudge",
+	"systemName": "divine_obsidian_fudge",
+	"author": "OmniMesa",
+	"version": 1,
+	"meshFile": "default.json",
+	"material": {
+		"type": "color",
+		"diffuseTexture": {
+			"light": "diffuse-light.png",
+			"dark": "diffuse-dark.png"
+		},
+		"diffuseLevel": 1,
+		"bumpTexture": "normal.png",
+		"bumpLevel": 0.5
+	},
+	"diceAvailable": [
+		"d4",
+		"d6",
+		"d8",
+		"d10",
+		"d12",
+		"d20",
+		"d100"
+	]
+}

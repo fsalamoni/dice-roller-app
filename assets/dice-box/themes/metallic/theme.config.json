@@ -1,0 +1,32 @@
+{
+    "name": "Metallic",
+    "systemName": "metallic",
+    "author": "OmniMesa",
+    "version": 1.0,
+    "meshFile": "default.json",
+    "material": {
+        "type": "standard",
+        "diffuseTexture": {
+            "light": "diffuse-light.png",
+            "dark": "diffuse-dark.png"
+        },
+        "diffuseLevel": 0.6,
+        "bumpTexture": "normal.png",
+        "bumpLevel": 0.8,
+        "specularTexture": "specular.jpg",
+        "specularPower": 15,
+        "shininess": 100,
+        "metalness": 0.9,
+        "roughness": 0.2,
+        "envMapIntensity": 2.0
+    },
+    "diceAvailable": [
+        "d4",
+        "d6",
+        "d8",
+        "d10",
+        "d12",
+        "d20",
+        "d100"
+    ]
+}
