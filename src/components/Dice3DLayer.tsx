@@ -27,7 +27,7 @@ const Dice3DLayer: React.FC = () => {
             assetPath: '/dice-roller-app/assets/dice-box/',
             scale: 4,
             theme: 'default',
-            offscreen: true, // Let's enable worker for production
+            offscreen: false, // Disable worker to ensure stability in production
             gravity: 3,
             mass: 3,
             friction: 0.8,
