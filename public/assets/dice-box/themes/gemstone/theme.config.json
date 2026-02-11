@@ -1,0 +1,29 @@
+{
+    "name": "Gemstone",
+    "systemName": "gemstone",
+    "author": "OmniMesa",
+    "version": 1.1,
+    "meshFile": "default.json",
+    "material": {
+        "type": "standard",
+        "diffuseTexture": {
+            "light": "diffuse-light.png",
+            "dark": "diffuse-dark.png"
+        },
+        "diffuseLevel": 0.8,
+        "bumpTexture": "normal.png",
+        "bumpLevel": 0.1,
+        "metalness": 0.1,
+        "roughness": 0.05,
+        "envMapIntensity": 2.5
+    },
+    "diceAvailable": [
+        "d4",
+        "d6",
+        "d8",
+        "d10",
+        "d12",
+        "d20",
+        "d100"
+    ]
+}

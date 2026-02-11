@@ -1,0 +1,19 @@
+{
+    "systemName": "wood",
+    "diceAvailable": [
+        "d4",
+        "d6",
+        "d8",
+        "d10",
+        "d12",
+        "d20",
+        "d100"
+    ],
+    "meshFile": "default.json",
+    "environment": {
+        "desk": "desk_texture.jpg"
+    },
+    "entryPoint": {
+        "mesh": "stump.gltf"
+    }
+}
