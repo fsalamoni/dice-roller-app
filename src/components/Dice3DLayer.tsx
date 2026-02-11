@@ -13,22 +13,24 @@ const Dice3DLayer: React.FC = () => {
     const boxRef = useRef<any>(null);
     const lastProcessedRequestId = useRef<string | null>(null);
     const cleanupTimerRef = useRef<NodeJS.Timeout | null>(null);
-
-    const containerRef = useRef<HTMLDivElement>(null);
+    const containerId = "dice-container"; // Stable ID
 
     // Initialize DiceBox
     useEffect(() => {
-        if (!containerRef.current || boxRef.current) return;
+        if (boxRef.current) return;
 
         console.log("🎲 Initializing DiceBox...");
 
+        // This is the definitive fix, matching the library's error message.
+        // First argument is the DOM selector string.
+        // Second argument is the config object.
         const box = new DiceBox(
-            containerRef.current, // Use ref as the FIRST argument
-            {                     // Config object as the SECOND argument
+            `#${containerId}`, 
+            {
                 assetPath: '/dice-roller-app/assets/dice-box/',
                 scale: 4,
                 theme: 'default',
-                offscreen: false, // Disable worker to ensure stability in production
+                offscreen: false,
                 gravity: 3,
                 mass: 3,
                 friction: 0.8,
@@ -45,7 +47,7 @@ const Dice3DLayer: React.FC = () => {
             console.error("🎲 DiceBox Init Error:", e);
         });
 
-    }, []);
+    }, []); // Empty dependency array ensures this runs only once
 
 
     // Handle Theme Changes
@@ -206,7 +208,7 @@ const Dice3DLayer: React.FC = () => {
             </style>
             <div className="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
                 {/* Canvas Container */}
-                <div ref={containerRef} className="absolute inset-0 w-full h-full block"></div>
+                <div id={containerId} className="absolute inset-0 w-full h-full block"></div>
 
                 {/* Result Badge */}
                 {resultBadge && (
